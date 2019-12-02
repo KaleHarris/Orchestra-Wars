@@ -7,6 +7,7 @@ public class EnemyScript : MonoBehaviour
     public int pathIndex = 0;
     private int wayPointIndex = 0;
     public int speed = 2;
+    public int health = 5;
 
     void Start(){
         
@@ -21,8 +22,15 @@ public class EnemyScript : MonoBehaviour
             OnGotToLastWayPoint();
         }
     }
-    private void OnTriggerEnter(Collider Weapon){
-        Destroy(gameObject);
+    private void OnTriggerEnter(Collider other){
+
+        if (other.CompareTag("Projectile") || other.CompareTag("Weapon")){
+            if (health > 0) {
+                health -= 1;
+            } else{
+                Destroy(gameObject);
+            }
+        }
     }
     public void UpdateMovement(){
         Vector3 targetPosition = WayPointManager.Instance.MinionPaths[pathIndex].WayPoints[wayPointIndex].position;
