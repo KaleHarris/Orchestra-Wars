@@ -25,7 +25,7 @@ public class EnemyScript : MonoBehaviour
     private void OnTriggerEnter(Collider other){
 
         if (other.CompareTag("Projectile") || other.CompareTag("Weapon")){
-            if (health > 0) {
+            if (health > 1) {
                 health -= 1;
             } else{
                 Destroy(gameObject);

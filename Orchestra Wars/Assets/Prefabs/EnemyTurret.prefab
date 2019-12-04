@@ -1651,7 +1651,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8669560813041460432}
-  - component: {fileID: 6134627332385768755}
+  - component: {fileID: 4097579456981999239}
   m_Layer: 0
   m_Name: EnemyTurret
   m_TagString: Untagged
@@ -1675,7 +1675,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6134627332385768755
+--- !u!114 &4097579456981999239
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1684,17 +1684,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8672226783050171672}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9e38fbd3158c8440b56030f8ba32f1c, type: 3}
+  m_Script: {fileID: 11500000, guid: 616d87e9e239e08498e7b0c61a686c99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damagePerShot: 1
-  timeBetweenShotsInSecs: 1
+  timeBetweenShotsInSecs: 2
   aggroRadius: 20
-  targetToAttack: {fileID: 3213219435331179590, guid: 98160a97eb91d544faac8fbbd0a58af3,
-    type: 3}
   projectile: {fileID: 2929865125266675761, guid: 8bab60de6a38b3d40bafb2938b48b2a9,
     type: 3}
-  possibleTargets: []
   currentTarget: {fileID: 0}
 --- !u!1 &8672253726852935938
 GameObject:

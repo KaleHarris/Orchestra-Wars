@@ -1221,11 +1221,8 @@ MonoBehaviour:
   damagePerShot: 1
   timeBetweenShotsInSecs: 1
   aggroRadius: 20
-  targetToAttack: {fileID: 3213219435331179590, guid: 98160a97eb91d544faac8fbbd0a58af3,
-    type: 3}
   projectile: {fileID: 2929865125266675761, guid: 8bab60de6a38b3d40bafb2938b48b2a9,
     type: 3}
-  possibleTargets: []
   currentTarget: {fileID: 0}
 --- !u!1 &989061824479954687
 GameObject:
