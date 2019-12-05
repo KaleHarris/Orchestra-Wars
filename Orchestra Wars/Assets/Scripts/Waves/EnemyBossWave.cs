@@ -1,18 +1,11 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBossWave : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+[Serializable]
+public class EnemyBossWave {
+    public int pathIndex;
+    public float startSpawnTimeInSeconds;
+    public float timeBetweenSpawnsInSeconds = 1f;
+    public List<GameObject> listOfEnemyBosses = new List<GameObject>();
 }
