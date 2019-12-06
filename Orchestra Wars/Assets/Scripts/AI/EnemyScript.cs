@@ -8,9 +8,13 @@ public class EnemyScript : MonoBehaviour
     private int wayPointIndex = 0;
     public int speed = 2;
     public int health = 5;
+    public GameObject gameManager;
 
     void Start(){
-        
+        //find and assign the game manager to the gamemanager variable, access its minionCount property
+        foreach(GameObject i in GameObject.FindGameObjectsWithTag("GameController")){
+            gameManager = i;
+        }
     }
 
     // Update is called once per frame
@@ -41,6 +45,7 @@ public class EnemyScript : MonoBehaviour
         }
     }
     private void OnGotToLastWayPoint(){
-        
+        gameManager.GetComponent<GameManager>().enemyMinionCount += 1;
+        Destroy(gameObject);
     }
 }

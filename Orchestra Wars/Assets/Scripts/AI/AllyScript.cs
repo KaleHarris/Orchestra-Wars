@@ -8,9 +8,13 @@ public class AllyScript : MonoBehaviour
     private int wayPointIndex = 0;
     public int speed = 2;
     public int health = 5;
+    public GameObject gameManager;
 
     void Start(){
-        
+        //assign game manager to the minion, to access its minionCount property later
+        foreach(GameObject i in GameObject.FindGameObjectsWithTag("GameController")){
+        gameManager = i;
+        }
     }
 
     // Update is called once per frame
@@ -40,7 +44,8 @@ public class AllyScript : MonoBehaviour
         }
     }
     private void OnGotToLastWayPoint(){
-        
+        gameManager.GetComponent<GameManager>().allyMinionCount += 1;
+        Destroy(gameObject);
     }
 }
 

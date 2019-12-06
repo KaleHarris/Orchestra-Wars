@@ -6,6 +6,7 @@ public class WaveManager : MonoBehaviour
 {
     public static WaveManager Instance;
     public List<EnemyWave> enemyWaves = new List<EnemyWave>();
+    public GameObject gameManager;
     private float elapsedTime = 0f;
     private EnemyWave activeWave;
     private float spawnCounter = 0f;
@@ -15,10 +16,20 @@ public class WaveManager : MonoBehaviour
         Instance = this;
     }
 
+    void Start(){
+        foreach(GameObject i in GameObject.FindGameObjectsWithTag("GameController")){
+        gameManager = i;
+        }
+    }
+
     void Update() {
         elapsedTime += Time.deltaTime;
         SearchForWave();
         UpdateActiveWave();
+        //stops spawning when boss has arrived
+        if (gameManager.GetComponent<GameManager>().bossSpawned){
+            StopSpawning();
+        }
     }
     private void SearchForWave() {
         foreach (EnemyWave enemyWave in enemyWaves)

@@ -990,6 +990,7 @@ MonoBehaviour:
     - {fileID: 3213219435331179590, guid: 98160a97eb91d544faac8fbbd0a58af3, type: 3}
     - {fileID: 3213219435331179590, guid: 98160a97eb91d544faac8fbbd0a58af3, type: 3}
     - {fileID: 3213219435331179590, guid: 98160a97eb91d544faac8fbbd0a58af3, type: 3}
+  gameManager: {fileID: 0}
 --- !u!1 &239458399
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,7 +1018,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 239458399}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.08, y: -6.61, z: 41.73}
+  m_LocalPosition: {x: -19.08, y: -6.61, z: 52.34}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 2020297441}
@@ -2337,9 +2338,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBossWaves:
   - pathIndex: 2
-    startSpawnTimeInSeconds: 0
     timeBetweenSpawnsInSeconds: 0
-    listOfEnemyBosses: []
+    listOfEnemyBosses:
+    - {fileID: 6007603906355721732, guid: ad099f7c95f327d43b88a800a629852c, type: 3}
+  gameManager: {fileID: 0}
 --- !u!1 &606858932
 GameObject:
   m_ObjectHideFlags: 0
@@ -4966,6 +4968,7 @@ MonoBehaviour:
     - {fileID: 1134978074318557422, guid: ecd9318552e321f4cbe303db7d71ca41, type: 3}
     - {fileID: 1134978074318557422, guid: ecd9318552e321f4cbe303db7d71ca41, type: 3}
     - {fileID: 1134978074318557422, guid: ecd9318552e321f4cbe303db7d71ca41, type: 3}
+  gameManager: {fileID: 0}
 --- !u!1001 &1414441194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7030,9 +7033,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allyBossWaves:
   - pathIndex: 3
-    startSpawnTimeInSeconds: 0
     timeBetweenSpawnsInSeconds: 0
-    listOfAllyBosses: []
+    listOfAllyBosses:
+    - {fileID: 6315044653670004135, guid: c198e80864252e14399abd6f532b820e, type: 3}
+  gameManager: {fileID: 0}
 --- !u!1 &1855564529
 GameObject:
   m_ObjectHideFlags: 0
@@ -7332,9 +7336,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1995476019}
+  - component: {fileID: 1995476020}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7353,6 +7358,23 @@ Transform:
   m_Father: {fileID: 2140255318}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1995476020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995476018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7651291253c20a84db9a32188614c0b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allyMinionCount: 0
+  enemyMinionCount: 0
+  bossSpawned: 0
+  spawnAllyBoss: 0
+  spawnEnemyBoss: 0
 --- !u!1 &2019963156
 GameObject:
   m_ObjectHideFlags: 0

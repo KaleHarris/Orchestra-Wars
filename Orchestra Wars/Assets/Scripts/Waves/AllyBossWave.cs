@@ -5,7 +5,6 @@ using UnityEngine;
 [Serializable]
 public class AllyBossWave {
     public int pathIndex;
-    public float startSpawnTimeInSeconds;
     public float timeBetweenSpawnsInSeconds = 1f;
     public List<GameObject> listOfAllyBosses = new List<GameObject>();
 }
