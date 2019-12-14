@@ -7,11 +7,17 @@ public class ButtonScript : MonoBehaviour
     public GameObject TurretPos;
     public GameObject Turret;
     bool exists = false;
+    Vector3 recede = new Vector3(0, 0, 1);
 
     void Update()
     {
-        if (this.GetComponent<OVRGrabbable>().isGrabbed){
+
+    }
+
+    void OnTriggerEnter(Collider other){
+        if (other.CompareTag("Hand") && exists == false){
             SpawnTurret();
+            transform.position += recede;
         }
     }
 

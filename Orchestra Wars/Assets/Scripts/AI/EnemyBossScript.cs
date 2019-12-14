@@ -25,7 +25,7 @@ public class EnemyBossScript : MonoBehaviour
         }
     }
     private void OnTriggerEnter(Collider other){
-        if (other.CompareTag("Projectile")){
+        if (other.CompareTag("Projectile") || other.CompareTag("Weapon")){
             if (health > 1) {
                 health -= 1;
             } else{
@@ -42,6 +42,9 @@ public class EnemyBossScript : MonoBehaviour
         }
     }
     private void OnGotToLastWayPoint(){
+        GameManager.instance.enemyWin = true;
+        GameManager.instance.endGame = true;
+
         
     }
 }

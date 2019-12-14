@@ -42,6 +42,8 @@ public class AllyBossScript : MonoBehaviour
         }
     }
     private void OnGotToLastWayPoint(){
+        GameManager.instance.playerWin = true;
+        GameManager.instance.endGame = true;
         
     }
 }
