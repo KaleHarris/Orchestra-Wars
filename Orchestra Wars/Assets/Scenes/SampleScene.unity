@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -416,6 +416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1442308401}
+  allyBoss: {fileID: 0}
 --- !u!1 &110912944
 GameObject:
   m_ObjectHideFlags: 0
@@ -1001,7 +1002,6 @@ MonoBehaviour:
     - {fileID: 3213219435331179590, guid: 98160a97eb91d544faac8fbbd0a58af3, type: 3}
     - {fileID: 3213219435331179590, guid: 98160a97eb91d544faac8fbbd0a58af3, type: 3}
     - {fileID: 3213219435331179590, guid: 98160a97eb91d544faac8fbbd0a58af3, type: 3}
-  gameManager: {fileID: 0}
 --- !u!1 &239458399
 GameObject:
   m_ObjectHideFlags: 0
@@ -2346,7 +2346,6 @@ MonoBehaviour:
     timeBetweenSpawnsInSeconds: 0
     listOfEnemyBosses:
     - {fileID: 6007603906355721732, guid: ad099f7c95f327d43b88a800a629852c, type: 3}
-  gameManager: {fileID: 0}
 --- !u!1 &606858932
 GameObject:
   m_ObjectHideFlags: 0
@@ -4978,7 +4977,6 @@ MonoBehaviour:
     - {fileID: 1134978074318557422, guid: ecd9318552e321f4cbe303db7d71ca41, type: 3}
     - {fileID: 1134978074318557422, guid: ecd9318552e321f4cbe303db7d71ca41, type: 3}
     - {fileID: 1134978074318557422, guid: ecd9318552e321f4cbe303db7d71ca41, type: 3}
-  gameManager: {fileID: 0}
 --- !u!1001 &1414441194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6399,10 +6397,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1698425163}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b48e346722acb754eae1e66ccfb122dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ec8db784a77d3340a81360b01543636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1442308401}
+  enemyBoss: {fileID: 0}
 --- !u!1 &1708954212
 GameObject:
   m_ObjectHideFlags: 0
@@ -7046,7 +7045,6 @@ MonoBehaviour:
     timeBetweenSpawnsInSeconds: 0
     listOfAllyBosses:
     - {fileID: 6315044653670004135, guid: c198e80864252e14399abd6f532b820e, type: 3}
-  gameManager: {fileID: 0}
 --- !u!1 &1855564529
 GameObject:
   m_ObjectHideFlags: 0
@@ -7380,6 +7378,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7651291253c20a84db9a32188614c0b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPaused: 1
+  endGame: 0
   allyMinionCount: 0
   enemyMinionCount: 0
   bossSpawned: 0
@@ -8006,7 +8006,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145545499}
-  m_Text: Help your allies attack this!
+  m_Text: Help your allies take this!
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1

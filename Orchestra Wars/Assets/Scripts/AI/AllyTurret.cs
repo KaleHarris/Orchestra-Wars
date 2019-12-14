@@ -27,6 +27,7 @@ public class AllyTurret : MonoBehaviour
         bullet.GetComponent<Projectile>().target = Target;
     }
     public virtual void Update() {
+        if (GameManager.instance.isPaused != true){
         attackCounter -= Time.deltaTime;
         GameObject nearestTarget = FindTarget();
 
@@ -45,5 +46,7 @@ public class AllyTurret : MonoBehaviour
 
             currentTarget = null;
         }
+        }
     }
+
 }

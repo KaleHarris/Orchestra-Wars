@@ -6,7 +6,6 @@ public class AllyWaveManager : MonoBehaviour
 {
     public static AllyWaveManager Instance;
     public List<AllyWave> allyWaves = new List<AllyWave>();
-    public GameObject gameManager;
     private float elapsedTime = 0f;
     private AllyWave activeWave;
     private float spawnCounter = 0f;
@@ -17,18 +16,18 @@ public class AllyWaveManager : MonoBehaviour
     }
 
     void Start(){
-        foreach(GameObject i in GameObject.FindGameObjectsWithTag("GameController")){
-        gameManager = i;
-        }
+
     }
 
     void Update() {
+        if (GameManager.instance.isPaused != true){
         elapsedTime += Time.deltaTime;
         SearchForWave();
         UpdateActiveWave();
         //stops spawning when a boss has arrived
-        if (gameManager.GetComponent<GameManager>().bossSpawned){
+        if (GameManager.instance.bossSpawned){
             StopSpawning();
+        }
         }
     }
     private void SearchForWave() {

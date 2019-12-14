@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1620785574169901122}
   m_Layer: 0
   m_Name: AllyBoss
-  m_TagString: Untagged
+  m_TagString: AllyBoss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

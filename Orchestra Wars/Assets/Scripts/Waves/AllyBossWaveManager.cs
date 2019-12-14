@@ -6,7 +6,6 @@ public class AllyBossWaveManager : MonoBehaviour
 {
     public static AllyBossWaveManager Instance;
     public List<AllyBossWave> allyBossWaves = new List<AllyBossWave>();
-    public GameObject gameManager;
     private float elapsedTime = 0f;
     private AllyBossWave activeWave;
     private float spawnCounter = 0f;
@@ -17,20 +16,20 @@ public class AllyBossWaveManager : MonoBehaviour
     }
 
     void Start(){
-        foreach(GameObject i in GameObject.FindGameObjectsWithTag("GameController")){
-        gameManager = i;
-        }
+
     }
 
     void Update() {
+        if (GameManager.instance.isPaused != true){
         elapsedTime += Time.deltaTime;
         SearchForWave();
         UpdateActiveWave();
+        }
     }
     private void SearchForWave() {
         foreach (AllyBossWave allyBossWave in allyBossWaves)
         {
-            if (!activatedWaves.Contains(allyBossWave) && gameManager.GetComponent<GameManager>().spawnAllyBoss == true) {
+            if (!activatedWaves.Contains(allyBossWave) && GameManager.instance.spawnAllyBoss == true) {
                 activeWave = allyBossWave;
                 activatedWaves.Add(allyBossWave);
                 spawnCounter = 0f;

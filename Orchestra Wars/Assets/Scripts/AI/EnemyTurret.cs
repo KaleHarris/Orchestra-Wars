@@ -27,6 +27,7 @@ public class EnemyTurret : MonoBehaviour
         bullet.GetComponent<Projectile>().target = Target;
     }
     public virtual void Update() {
+        if (GameManager.instance.isPaused != true){
         attackCounter -= Time.deltaTime;
         GameObject nearestTarget = FindTarget();
 
@@ -44,6 +45,7 @@ public class EnemyTurret : MonoBehaviour
             if (Vector3.Distance(transform.position, currentTarget.transform.position) > aggroRadius)
 
             currentTarget = null;
+        }
         }
     }
 }

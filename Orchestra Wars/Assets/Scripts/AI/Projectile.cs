@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance.isPaused != true){
         if (target == null){
             Destroy(gameObject);
         } else if (target != null) {
@@ -17,6 +18,7 @@ public class Projectile : MonoBehaviour
             if (Vector3.Distance(transform.position, target.transform.position) < 0.2) {
                 Destroy(gameObject);
             }
+        }
         }
     }
 }

@@ -16,10 +16,12 @@ public class AllyBossScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.instance.isPaused != true){
         if (wayPointIndex < WayPointManager.Instance.MinionPaths[pathIndex].WayPoints.Count){
             UpdateMovement();
         }else {
             OnGotToLastWayPoint();
+        }
         }
     }
     private void OnTriggerEnter(Collider other){
