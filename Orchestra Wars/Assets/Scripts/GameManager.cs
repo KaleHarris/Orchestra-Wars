@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public bool playerWin = false;
     public bool spawnEnemyBoss = false;
     public bool enemyWin = false;
+    public bool quitSpawned = false;
     public GameObject player;
     public GameObject allyText;
     public GameObject enemyText;
@@ -50,18 +51,21 @@ public class GameManager : MonoBehaviour
         if (currentTime <= 0){
             endGame = true;
         }
-        if (endGame == true && playerWin == true){
+        if (endGame == true && playerWin == true && quitSpawned == false){
             isPaused = true;
             timeText.GetComponent<TextMesh>().text = "You stole the enemy's Sheet Music! You Win!\nCome to the bridge to quit the game!";
             Instantiate(quitButton, quitPos.GetComponent<Transform>().transform);
-        }else if (endGame == true && enemyWin == true){
+            quitSpawned = true;
+        }else if (endGame == true && enemyWin == true && quitSpawned == false){
             isPaused = true;
             timeText.GetComponent<TextMesh>().text = "The enemy stole your Sheet Music! You Lose!\nCome to the bridge to quit the game!";
             Instantiate(quitButton, quitPos.GetComponent<Transform>().transform);
-        }else if (endGame == true && currentTime <= 0) {
+            quitSpawned = true;
+        }else if (endGame == true && currentTime <= 0 && quitSpawned == false) {
             isPaused = true;
             timeText.GetComponent<TextMesh>().text = "Time has run out! It's a Draw!\nCome to the bridge to quit the game!";
             Instantiate(quitButton, quitPos.GetComponent<Transform>().transform);
+            quitSpawned = true;
         }
     }
 }
