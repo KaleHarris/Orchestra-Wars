@@ -1,16 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyScript : MonoBehaviour
 {
     public int pathIndex = 0;
     private int wayPointIndex = 0;
     public int speed = 2;
-    public int health = 5;
+    public float health = 5;
+    float maxHealth = 5;
+    public GameObject healthUI;
+    public Slider healthBar;
+    public AudioSource hitSound;
 
     void Start(){
-
+        healthBar.value = 1;
     }
 
     // Update is called once per frame
@@ -29,6 +34,8 @@ public class EnemyScript : MonoBehaviour
         if (other.CompareTag("Projectile") || other.CompareTag("Weapon")){
             if (health > 1) {
                 health -= 1;
+                hitSound.Play();
+                healthBar.value = health / maxHealth;
             } else{
                 Destroy(gameObject);
             }

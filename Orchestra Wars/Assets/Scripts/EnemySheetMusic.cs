@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemySheetMusic : MonoBehaviour
 {
     public GameObject player;
-    public GameObject allyBoss;
-    bool bossFound;
+    //public GameObject allyBoss;
+    //bool bossFound;
 
     void Start()
     {
@@ -16,11 +16,11 @@ public class EnemySheetMusic : MonoBehaviour
     void Update()
     {
         transform.LookAt(player.transform);
-        if (bossFound == false){
+        /*if (bossFound == false){
             SearchForBoss();
         }
         if (bossFound == true){
-            transform.position = allyBoss.transform.position;
+            transform.position = allyBoss.carryPoint.transform.position;
         }
     }
     void SearchForBoss(){
@@ -29,6 +29,6 @@ public class EnemySheetMusic : MonoBehaviour
         }
         if (allyBoss != null){
             bossFound = true;
-        }
+        }*/
     }
 }

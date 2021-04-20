@@ -15,12 +15,18 @@ public class GameManager : MonoBehaviour
     public bool spawnEnemyBoss = false;
     public bool enemyWin = false;
     public bool quitSpawned = false;
+    bool enemyBossFound;
+    bool allyBossFound;
     public GameObject player;
     public GameObject allyText;
     public GameObject enemyText;
     public GameObject timeText;
     public GameObject quitPos;
     public GameObject quitButton;
+    public GameObject enemyBoss;
+    public GameObject allyBoss;
+    public AudioSource music;
+    bool musicStarted = false;
     float currentTime = 300;
 
     void Start()
@@ -38,8 +44,12 @@ public class GameManager : MonoBehaviour
         enemyText.GetComponent<TextMesh>().text = "Enemies in Your Base: " + enemyMinionCount + "/20";
         if (isPaused == false){
             currentTime -= Time.deltaTime;
+            timeText.GetComponent<TextMesh>().text = "Time Left: " + currentTime + " seconds";
         }
-        timeText.GetComponent<TextMesh>().text = "Time Left: " + currentTime + " seconds";
+        if (isPaused == false && musicStarted == false){
+            music.Play();
+            musicStarted = true;
+        }
         if (allyMinionCount >= 20){
             bossSpawned = true;
             spawnAllyBoss = true;
@@ -48,6 +58,7 @@ public class GameManager : MonoBehaviour
             bossSpawned = true;
             spawnEnemyBoss = true;
         }
+        //conditions for triggering the different end games
         if (currentTime <= 0){
             endGame = true;
         }
@@ -66,6 +77,23 @@ public class GameManager : MonoBehaviour
             timeText.GetComponent<TextMesh>().text = "Time has run out! It's a Draw!\nCome to the bridge to quit the game!";
             Instantiate(quitButton, quitPos.GetComponent<Transform>().transform);
             quitSpawned = true;
+        }
+        //end conditions for triggering end games
+    }
+    void SearchForEnemyBoss(){
+        foreach (GameObject i in GameObject.FindGameObjectsWithTag("EnemyBoss")){
+                enemyBoss = i;
+        }
+        if (enemyBoss != null){
+            enemyBossFound = true;
+        }
+    }
+    void SearchForAllyBoss(){
+        foreach (GameObject i in GameObject.FindGameObjectsWithTag("AllyBoss")){
+                allyBoss = i;
+        }
+        if (allyBoss != null){
+            allyBossFound = true;
         }
     }
 }

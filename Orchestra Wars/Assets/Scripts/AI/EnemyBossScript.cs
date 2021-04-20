@@ -8,6 +8,9 @@ public class EnemyBossScript : MonoBehaviour
     private int wayPointIndex = 0;
     public int speed = 1;
     public int health = 40;
+    public GameObject playerScroll;
+    public GameObject carryPoint;
+    bool scrollFound;
 
     void Start(){
         
@@ -16,6 +19,14 @@ public class EnemyBossScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+         //search for and assign the opposing scroll to the enemy scroll variable, then change its transform to the carry point
+        if (scrollFound == false){
+            SearchForScroll();
+        }
+        if (scrollFound == true){
+            playerScroll.transform.position = carryPoint.transform.position;
+        }
+        //end scroll searching
         if (GameManager.instance.isPaused != true){
         if (wayPointIndex < WayPointManager.Instance.MinionPaths[pathIndex].WayPoints.Count){
             UpdateMovement();
@@ -24,11 +35,21 @@ public class EnemyBossScript : MonoBehaviour
         }
         }
     }
+    void SearchForScroll(){
+        foreach (GameObject i in GameObject.FindGameObjectsWithTag("PlayerScroll")){
+                playerScroll = i;
+        }
+        if (playerScroll != null){
+            scrollFound = true;
+        }
+    }
     private void OnTriggerEnter(Collider other){
         if (other.CompareTag("Projectile") || other.CompareTag("Weapon")){
             if (health > 1) {
                 health -= 1;
             } else{
+                GameManager.instance.playerWin = true;
+                GameManager.instance.endGame = true;
                 Destroy(gameObject);
             }
         }

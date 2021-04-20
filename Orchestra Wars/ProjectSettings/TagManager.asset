@@ -11,6 +11,8 @@ TagManager:
   - EnemyBoss
   - AllyBoss
   - Hand
+  - PlayerScroll
+  - EnemyScroll
   layers:
   - Default
   - TransparentFX

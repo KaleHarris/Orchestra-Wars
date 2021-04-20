@@ -7,7 +7,8 @@ public class AllyScript : MonoBehaviour
     public int pathIndex = 0;
     private int wayPointIndex = 0;
     public int speed = 2;
-    public int health = 5;
+    public int health = 6;
+    public AudioSource hitSound;
 
     void Start(){
         
@@ -28,6 +29,7 @@ public class AllyScript : MonoBehaviour
         if (other.CompareTag("Projectile")){
             if (health > 1) {
                 health -= 1;
+                hitSound.Play();
             } else{
                 Destroy(gameObject);
             }

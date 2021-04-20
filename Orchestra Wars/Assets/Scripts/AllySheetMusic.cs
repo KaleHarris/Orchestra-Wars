@@ -5,10 +5,10 @@ using UnityEngine;
 public class AllySheetMusic : MonoBehaviour
 {
     public GameObject player;
-    public GameObject enemyBoss;
+    //public GameObject enemyBoss;
     GameObject sheetMusic;
     GameObject text;
-    bool bossFound = false;
+    //bool bossFound = false;
 
     void Start()
     {
@@ -18,11 +18,11 @@ public class AllySheetMusic : MonoBehaviour
     void Update()
     {
         transform.LookAt(player.transform);
-        if (bossFound == false){
+        /*if (bossFound == false){
             SearchForBoss();
         }
         if (bossFound == true){
-            transform.position = enemyBoss.transform.position;
+            transform.position = enemyBoss.carryPoint.transform.position;
         }
     }
     void SearchForBoss(){
@@ -31,6 +31,6 @@ public class AllySheetMusic : MonoBehaviour
         }
         if (enemyBoss != null){
             bossFound = true;
-        }
+        }*/
     }
 }

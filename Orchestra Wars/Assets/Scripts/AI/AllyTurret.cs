@@ -10,6 +10,7 @@ public class AllyTurret : MonoBehaviour
     public GameObject projectile;
     private float attackCounter;
     public GameObject currentTarget;
+    public AudioSource attackSound;
 
     private GameObject FindTarget() {
         GameObject[] targets = GameObject.FindGameObjectsWithTag("Enemy");
@@ -25,11 +26,15 @@ public class AllyTurret : MonoBehaviour
     public void AttackTarget(GameObject Target) {
         GameObject bullet = Instantiate(projectile, transform.position, Quaternion.identity);
         bullet.GetComponent<Projectile>().target = Target;
+        attackSound.Play();
     }
     public virtual void Update() {
         if (GameManager.instance.isPaused != true){
         attackCounter -= Time.deltaTime;
         GameObject nearestTarget = FindTarget();
+        if (currentTarget != null){
+            transform.LookAt(currentTarget.transform.position);
+        }
 
         if (currentTarget == null){
             
